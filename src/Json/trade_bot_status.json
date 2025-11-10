@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 11,
+    "totalTradesQueued": 0,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-10T07:04:50.376Z"
+    "lastUpdated": "2025-11-10T07:10:32.431Z"
   },
   "bots": {
     "1435526259500257313": {
@@ -13,50 +13,24 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 3,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 34,
       "lastActive": "2025-11-10T03:35:29.642Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "123456789",
-          "username": "TrainerAsh",
-          "pokemon": "Pikachu",
-          "timestamp": "2025-11-10T07:04:50.306Z"
-        },
-        {
-          "userId": "987654321",
-          "username": "MistyWater",
-          "pokemon": "Staryu",
-          "timestamp": "2025-11-10T07:04:50.318Z"
-        },
-        {
-          "userId": "555555555",
-          "username": "BrockRock",
-          "pokemon": "Onix",
-          "timestamp": "2025-11-10T07:04:50.322Z"
-        }
-      ]
+      "queue": []
     },
     "1435493623042015273": {
       "name": "Legends Z-A Bot 2",
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 1,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 46,
       "lastActive": "2025-11-10T03:35:29.643Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "444444444",
-          "username": "GaryOak",
-          "pokemon": "Eevee",
-          "timestamp": "2025-11-10T07:04:50.326Z"
-        }
-      ]
+      "queue": []
     },
     "1436159235959292057": {
       "name": "Legends Z-A Bot 3",
@@ -87,37 +61,12 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Scarlet & Violet",
-      "tradesQueued": 4,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 38,
       "lastActive": "2025-11-10T03:35:29.643Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "333333333",
-          "username": "RedKanto",
-          "pokemon": "Charizard",
-          "timestamp": "2025-11-10T07:04:50.332Z"
-        },
-        {
-          "userId": "222222222",
-          "username": "BluePallet",
-          "pokemon": "Blastoise",
-          "timestamp": "2025-11-10T07:04:50.337Z"
-        },
-        {
-          "userId": "111111111",
-          "username": "GreenViridian",
-          "pokemon": "Venusaur",
-          "timestamp": "2025-11-10T07:04:50.343Z"
-        },
-        {
-          "userId": "123456789",
-          "username": "TrainerAsh",
-          "pokemon": "Pikachu",
-          "timestamp": "2025-11-10T07:04:50.350Z"
-        }
-      ]
+      "queue": []
     },
     "1432217772322197574": {
       "name": "Scarlet & Violet Bot 2",
@@ -160,25 +109,12 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Brilliant Diamond & Shining Pearl",
-      "tradesQueued": 2,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 23,
       "lastActive": "2025-11-10T03:35:29.643Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "987654321",
-          "username": "MistyWater",
-          "pokemon": "Staryu",
-          "timestamp": "2025-11-10T07:04:50.358Z"
-        },
-        {
-          "userId": "555555555",
-          "username": "BrockRock",
-          "pokemon": "Onix",
-          "timestamp": "2025-11-10T07:04:50.368Z"
-        }
-      ]
+      "queue": []
     },
     "1402657221770350624": {
       "name": "Brilliant Diamond & Shining Pearl Bot 2",
@@ -197,19 +133,12 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Sword & Shield",
-      "tradesQueued": 1,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 30,
       "lastActive": "2025-11-10T03:35:29.643Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "444444444",
-          "username": "GaryOak",
-          "pokemon": "Eevee",
-          "timestamp": "2025-11-10T07:04:50.376Z"
-        }
-      ]
+      "queue": []
     },
     "1403939746169884685": {
       "name": "Sword & Shield Bot 2",

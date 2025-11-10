@@ -952,15 +952,23 @@
 
         async function refreshDashboard() {
             try {
+                console.log('Fetching data from:', DATA_URL);
                 const res = await fetch(DATA_URL + '?t=' + Date.now());
 
+                console.log('Fetch response status:', res.status);
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
 
                 const data = await res.json();
+                console.log('Data loaded successfully:', data);
+
                 const bots = data.bots;
                 const network = data.network;
+
+                if (!bots || Object.keys(bots).length === 0) {
+                    throw new Error('No bots found in data');
+                }
 
                 // Update header
                 const totalQueue = network.totalTradesQueued || 0;

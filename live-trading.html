@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKM Universe - Indianapolis Trade Network</title>
+    <title>PKM Universe - Live Trading Network</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -14,40 +14,88 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
+            font-family: 'Rajdhani', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0ff;
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Unique grid-based header - avoiding GenPKM's particle header */
-        .header-bar {
-            background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
-            border-bottom: 3px solid #238636;
-            padding: 30px 0;
-            position: relative;
-        }
-
-        .header-bar::before {
-            content: '';
-            position: absolute;
+        /* Animated background grid */
+        .bg-grid {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg,
-                transparent 0%,
-                #238636 20%,
-                #2ea043 40%,
-                #238636 60%,
-                transparent 100%);
-            animation: scan 3s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(147, 51, 234, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        @keyframes scan {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        /* Glowing orbs in background */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #9333ea, #ec4899);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .bg-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            bottom: -250px;
+            right: -250px;
+            animation-delay: 5s;
+        }
+
+        .bg-orb-3 {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header with neon glow */
+        .header-bar {
+            background: linear-gradient(180deg, rgba(10, 10, 15, 0.95) 0%, rgba(10, 10, 15, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(147, 51, 234, 0.5);
+            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(147, 51, 234, 0.15);
         }
 
         .header-content {
@@ -59,112 +107,185 @@
         .brand-section {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 25px;
+            margin-bottom: 30px;
         }
 
         .brand-logo {
-            font-size: 2.8em;
-            font-weight: 700;
-            color: #2ea043;
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: -2px;
+            font-size: 3em;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #a855f7, #ec4899, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8)); }
+            50% { filter: drop-shadow(0 0 25px rgba(168, 85, 247, 1)); }
         }
 
         .brand-subtitle {
-            color: #7d8590;
-            font-size: 0.95em;
-            font-weight: 500;
-            padding: 6px 14px;
-            background: rgba(46, 160, 67, 0.1);
-            border-radius: 6px;
-            border: 1px solid rgba(46, 160, 67, 0.3);
+            color: #c084fc;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 8px 18px;
+            background: rgba(147, 51, 234, 0.15);
+            border-radius: 8px;
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.2);
         }
 
-        /* Network status banner - completely different from GenPKM's cards */
+        /* Network banner with neon styling */
         .network-banner {
-            background: linear-gradient(135deg, rgba(35, 134, 54, 0.15) 0%, rgba(46, 160, 67, 0.05) 100%);
-            border: 2px solid #238636;
-            border-radius: 12px;
-            padding: 25px 35px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2) 0%, rgba(59, 130, 246, 0.15) 100%);
+            border: 2px solid;
+            border-image: linear-gradient(90deg, #9333ea, #3b82f6, #06b6d4) 1;
+            border-radius: 15px;
+            padding: 30px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
+            box-shadow: 0 8px 32px rgba(147, 51, 234, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .status-message {
-            font-size: 1.1em;
-            color: #c9d1d9;
-            font-weight: 500;
+            font-size: 1.2em;
+            color: #e0e0ff;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .status-indicator {
-            width: 14px;
-            height: 14px;
-            background: #2ea043;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
             border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(46, 160, 67, 0.2);
-            animation: pulse-green 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.8),
+                        0 0 40px rgba(16, 185, 129, 0.4);
+            animation: pulse-neon 2s ease-in-out infinite;
         }
 
-        @keyframes pulse-green {
-            0%, 100% { box-shadow: 0 0 0 4px rgba(46, 160, 67, 0.2); }
-            50% { box-shadow: 0 0 0 8px rgba(46, 160, 67, 0.1); }
+        @keyframes pulse-neon {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(16, 185, 129, 0.8),
+                           0 0 40px rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 30px rgba(16, 185, 129, 1),
+                           0 0 60px rgba(16, 185, 129, 0.6);
+            }
         }
 
         .network-metrics {
             display: flex;
-            gap: 40px;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
         }
 
         .metric-item {
             text-align: center;
+            position: relative;
+        }
+
+        .metric-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a855f7, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .metric-item:hover::after {
+            opacity: 1;
         }
 
         .metric-value {
-            font-size: 2.2em;
-            font-weight: 700;
-            color: #2ea043;
-            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5em;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
         }
 
         .metric-label {
-            font-size: 0.75em;
-            color: #7d8590;
+            font-size: 0.85em;
+            color: #c084fc;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         .main-container {
             max-width: 1600px;
-            margin: 40px auto;
+            margin: 50px auto;
             padding: 0 40px;
         }
 
-        /* Split-panel layout - different from GenPKM's card grid */
+        /* Summary panel with glass effect */
         .summary-panel {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .summary-header {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #c9d1d9;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #21262d;
+            font-size: 1.8em;
+            font-weight: 800;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #a855f7, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(147, 51, 234, 0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -172,256 +293,350 @@
 
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
         .summary-stat {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            border-radius: 15px;
+            padding: 25px;
             transition: all 0.3s ease;
-        }
-
-        .summary-stat:hover {
-            border-color: #238636;
-            transform: translateY(-2px);
-        }
-
-        .summary-stat-label {
-            font-size: 0.85em;
-            color: #7d8590;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .summary-stat-value {
-            font-size: 2em;
-            font-weight: 700;
-            color: #2ea043;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Terminal-style bot list - unique alternative to GenPKM's cards */
-        .game-section {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            margin-bottom: 25px;
+            position: relative;
             overflow: hidden;
         }
 
+        .summary-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #9333ea, #3b82f6, #06b6d4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .summary-stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.8);
+            box-shadow: 0 15px 40px rgba(147, 51, 234, 0.4);
+        }
+
+        .summary-stat:hover::before {
+            opacity: 1;
+        }
+
+        .summary-stat-label {
+            font-size: 0.95em;
+            color: #c084fc;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .summary-stat-value {
+            font-size: 2.5em;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Game sections with Pokemon theming */
+        .game-section {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.08), rgba(59, 130, 246, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .game-section:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 15px 50px rgba(147, 51, 234, 0.4);
+        }
+
         .game-header {
-            background: linear-gradient(90deg, #238636 0%, #2ea043 100%);
-            padding: 18px 30px;
+            background: linear-gradient(135deg, #9333ea, #7c3aed, #6366f1);
+            padding: 25px 35px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: slide 3s infinite;
+        }
+
+        @keyframes slide {
+            0% { left: -100%; }
+            100% { left: 200%; }
         }
 
         .game-title {
-            font-size: 1.3em;
-            font-weight: 700;
+            font-size: 1.6em;
+            font-weight: 800;
             color: #ffffff;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Orbitron', sans-serif;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
         }
 
         .game-icon {
-            font-size: 1.2em;
+            font-size: 1.4em;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
 
         .game-summary {
             display: flex;
-            gap: 25px;
+            gap: 30px;
             color: #ffffff;
-            font-weight: 600;
-            font-size: 0.9em;
+            font-weight: 700;
+            font-size: 1em;
+            position: relative;
+            z-index: 1;
         }
 
         .game-summary-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
         }
 
         .bots-list {
-            padding: 25px 30px;
+            padding: 30px 35px;
         }
 
+        /* Bot items with neon accents */
         .bot-item {
-            background: #0d1117;
-            border: 1px solid #21262d;
-            border-radius: 8px;
-            padding: 18px 22px;
-            margin-bottom: 12px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
             display: grid;
-            grid-template-columns: 30px 1fr auto;
-            gap: 20px;
+            grid-template-columns: 35px 1fr auto;
+            gap: 25px;
             align-items: center;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bot-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #9333ea, #3b82f6, #06b6d4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .bot-item:hover {
-            border-color: #238636;
-            background: rgba(35, 134, 54, 0.05);
+            border-color: rgba(168, 85, 247, 0.6);
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(59, 130, 246, 0.08));
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px rgba(147, 51, 234, 0.3);
+        }
+
+        .bot-item:hover::before {
+            opacity: 1;
         }
 
         .bot-status-icon {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: #2ea043;
-            box-shadow: 0 0 8px rgba(46, 160, 67, 0.6);
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.8),
+                        0 0 30px rgba(16, 185, 129, 0.4);
+            animation: pulse-neon 2s ease-in-out infinite;
         }
 
         .bot-status-icon.offline {
-            background: #f85149;
-            box-shadow: 0 0 8px rgba(248, 81, 73, 0.6);
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.8),
+                        0 0 30px rgba(239, 68, 68, 0.4);
         }
 
         .bot-info {
             display: grid;
-            grid-template-columns: 280px repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: 300px repeat(3, 1fr);
+            gap: 25px;
             align-items: center;
         }
 
         .bot-name {
-            font-weight: 600;
-            color: #c9d1d9;
-            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #e0e0ff;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .bot-detail {
-            font-size: 0.9em;
-            color: #7d8590;
+            font-size: 0.95em;
+            color: #a78bfa;
         }
 
         .bot-detail strong {
-            color: #2ea043;
+            color: #e0e0ff;
             font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        /* Queue display - minimal design, different from GenPKM */
+        /* Queue display with neon styling */
         .bot-queue {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
             align-items: flex-end;
         }
 
         .queue-badge {
-            background: rgba(35, 134, 54, 0.2);
-            border: 1px solid #238636;
-            border-radius: 6px;
-            padding: 8px 16px;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            font-size: 0.85em;
-            color: #2ea043;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.2));
+            border: 2px solid rgba(168, 85, 247, 0.6);
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            color: #e0e0ff;
             white-space: nowrap;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
 
         .queue-badge.idle {
-            background: rgba(125, 133, 144, 0.15);
-            border-color: #30363d;
-            color: #7d8590;
+            background: rgba(100, 100, 120, 0.15);
+            border-color: rgba(100, 100, 120, 0.3);
+            color: #8b8ba3;
+            box-shadow: none;
+            text-shadow: none;
         }
 
         .queue-details {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            margin-top: 6px;
+            gap: 6px;
+            margin-top: 8px;
         }
 
         .queue-user {
-            background: rgba(13, 17, 23, 0.6);
-            border: 1px solid #21262d;
-            border-radius: 4px;
-            padding: 6px 10px;
-            font-size: 0.8em;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.15));
+            border: 1px solid rgba(147, 51, 234, 0.4);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.85em;
             display: flex;
             align-items: center;
-            gap: 8px;
-            min-width: 200px;
+            gap: 10px;
+            min-width: 220px;
+            transition: all 0.3s ease;
+        }
+
+        .queue-user:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
         }
 
         .queue-pos {
-            background: #2ea043;
-            color: #0d1117;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.85em;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: #ffffff;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 2px 10px rgba(168, 85, 247, 0.5);
         }
 
         .queue-username {
-            color: #c9d1d9;
-            font-weight: 500;
+            color: #e0e0ff;
+            font-weight: 600;
         }
 
         .queue-pokemon {
-            color: #58a6ff;
-            font-weight: 600;
+            color: #06b6d4;
+            font-weight: 700;
             margin-left: auto;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
         }
 
-        .footer-stats {
-            text-align: center;
-            padding: 30px;
-            color: #7d8590;
-            font-size: 0.9em;
-        }
-
+        /* Live indicator with neon glow */
         .live-indicator {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #161b22;
-            border: 2px solid #238636;
-            padding: 14px 24px;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            bottom: 35px;
+            right: 35px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.9), rgba(59, 130, 246, 0.8));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(168, 85, 247, 0.8);
+            padding: 16px 28px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(147, 51, 234, 0.6),
+                        0 0 60px rgba(147, 51, 234, 0.4);
             display: flex;
             align-items: center;
             gap: 12px;
-            font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff;
             z-index: 1000;
         }
 
         .live-dot {
-            width: 10px;
-            height: 10px;
-            background: #2ea043;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
             border-radius: 50%;
-            animation: pulse-green 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 1);
+            animation: pulse-neon 2s ease-in-out infinite;
         }
 
         .loading-state {
             text-align: center;
-            padding: 100px 30px;
+            padding: 120px 30px;
         }
 
         .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #21262d;
-            border-top: 3px solid #2ea043;
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(147, 51, 234, 0.2);
+            border-top: 4px solid #a855f7;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             animation: spin 1s linear infinite;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
         }
 
         @keyframes spin {
@@ -430,22 +645,21 @@
         }
 
         .loading-text {
-            color: #7d8590;
-            font-size: 1.1em;
+            color: #c084fc;
+            font-size: 1.2em;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
         }
 
+        /* Responsive design */
         @media (max-width: 1200px) {
             .bot-info {
                 grid-template-columns: 1fr;
-                gap: 10px;
+                gap: 12px;
             }
 
             .network-metrics {
-                gap: 20px;
-            }
-
-            .metric-value {
-                font-size: 1.8em;
+                gap: 30px;
             }
         }
 
@@ -453,6 +667,10 @@
             .header-content,
             .main-container {
                 padding: 0 20px;
+            }
+
+            .brand-logo {
+                font-size: 2em;
             }
 
             .network-banner {
@@ -463,6 +681,11 @@
             .network-metrics {
                 width: 100%;
                 justify-content: space-around;
+                gap: 20px;
+            }
+
+            .metric-value {
+                font-size: 2em;
             }
 
             .game-header {
@@ -472,7 +695,7 @@
 
             .bot-item {
                 grid-template-columns: 1fr;
-                gap: 12px;
+                gap: 15px;
             }
 
             .bot-queue {
@@ -482,70 +705,78 @@
     </style>
 </head>
 <body>
-    <div class="header-bar">
-        <div class="header-content">
-            <div class="brand-section">
-                <div class="brand-logo">PKM_UNIVERSE</div>
-                <div class="brand-subtitle">Indianapolis Trade Network</div>
-            </div>
+    <!-- Animated background elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
 
-            <div class="network-banner">
-                <div class="status-message">
-                    <span class="status-indicator"></span>
-                    <span id="network-status-text">Trading network is operating normally</span>
+    <div class="main-content">
+        <div class="header-bar">
+            <div class="header-content">
+                <div class="brand-section">
+                    <div class="brand-logo">⚡ PKM UNIVERSE</div>
+                    <div class="brand-subtitle">🌐 Indianapolis Trading Network</div>
                 </div>
-                <div class="network-metrics">
-                    <div class="metric-item">
-                        <div class="metric-value" id="active-regions">1</div>
-                        <div class="metric-label">Active Regions</div>
+
+                <div class="network-banner">
+                    <div class="status-message">
+                        <span class="status-indicator"></span>
+                        <span id="network-status-text">Trading network is operating normally</span>
                     </div>
-                    <div class="metric-item">
-                        <div class="metric-value" id="total-bots-header">0</div>
-                        <div class="metric-label">Total Bots</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-value" id="total-queue-header">0</div>
-                        <div class="metric-label">Trades Queued</div>
+                    <div class="network-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value" id="active-regions">1</div>
+                            <div class="metric-label">Active Regions</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="total-bots-header">0</div>
+                            <div class="metric-label">Total Bots</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="total-queue-header">0</div>
+                            <div class="metric-label">Trades Queued</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="main-container">
-        <div class="summary-panel">
-            <div class="summary-header">
-                <span>Network Overview</span>
-                <span style="font-size: 0.6em; color: #7d8590; font-weight: 500;">Indianapolis, Indiana</span>
+        <div class="main-container">
+            <div class="summary-panel">
+                <div class="summary-header">
+                    <span>⚡ Network Overview</span>
+                    <span style="font-size: 0.5em; background: linear-gradient(135deg, #a855f7, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">📍 Indianapolis, IN</span>
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-stat">
+                        <div class="summary-stat-label">🎮 Total Pokemon</div>
+                        <div class="summary-stat-value" id="total-pokemon">0</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-label">✅ Completed Trades</div>
+                        <div class="summary-stat-value" id="total-completed">0</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-label">🤖 Active Bots</div>
+                        <div class="summary-stat-value" id="active-bots">0</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-label">⏱️ Current Queue</div>
+                        <div class="summary-stat-value" id="current-queue">0</div>
+                    </div>
+                </div>
             </div>
-            <div class="summary-grid">
-                <div class="summary-stat">
-                    <div class="summary-stat-label">Total Pokemon</div>
-                    <div class="summary-stat-value" id="total-pokemon">0</div>
-                </div>
-                <div class="summary-stat">
-                    <div class="summary-stat-label">Completed Trades</div>
-                    <div class="summary-stat-value" id="total-completed">0</div>
-                </div>
-                <div class="summary-stat">
-                    <div class="summary-stat-label">Active Bots</div>
-                    <div class="summary-stat-value" id="active-bots">0</div>
-                </div>
-                <div class="summary-stat">
-                    <div class="summary-stat-label">Current Queue</div>
-                    <div class="summary-stat-value" id="current-queue">0</div>
-                </div>
+
+            <div id="games-container" class="loading-state">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">🔌 Connecting to trade network...</div>
             </div>
-        </div>
 
-        <div id="games-container" class="loading-state">
-            <div class="loading-spinner"></div>
-            <div class="loading-text">Connecting to trade network...</div>
-        </div>
-
-        <div class="live-indicator">
-            <div class="live-dot"></div>
-            <span>LIVE • <span id="refresh-timer">30</span>s</span>
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span>LIVE • <span id="refresh-timer">30</span>s</span>
+            </div>
         </div>
     </div>
 
@@ -563,7 +794,6 @@
 
         async function refreshDashboard() {
             try {
-                // Add cache-busting parameter to ensure fresh data
                 const res = await fetch(DATA_URL + '?t=' + Date.now());
 
                 if (!res.ok) {
@@ -625,15 +855,15 @@
                                 </div>
                                 <div class="game-summary">
                                     <div class="game-summary-item">
-                                        <span>●</span>
+                                        <span>⚡</span>
                                         <span>${onlineCount}/${gameBots.length} Online</span>
                                     </div>
                                     <div class="game-summary-item">
-                                        <span>📦</span>
+                                        <span>🎮</span>
                                         <span>${pokemonCount.toLocaleString()} Pokemon</span>
                                     </div>
                                     <div class="game-summary-item">
-                                        <span>⏱️</span>
+                                        <span>📊</span>
                                         <span>${queuedCount} Queued</span>
                                     </div>
                                 </div>
@@ -675,10 +905,10 @@
                             <div class="bot-item">
                                 <div class="bot-status-icon ${isOnline ? '' : 'offline'}"></div>
                                 <div class="bot-info">
-                                    <div class="bot-name">${bot.name}</div>
-                                    <div class="bot-detail">Pokemon: <strong>${(bot.pokemonCount || 0).toLocaleString()}</strong></div>
-                                    <div class="bot-detail">Completed: <strong>${(bot.tradesCompleted || 0).toLocaleString()}</strong></div>
-                                    <div class="bot-detail">Status: <strong>${bot.status}</strong></div>
+                                    <div class="bot-name">🤖 ${bot.name}</div>
+                                    <div class="bot-detail">🎮 Pokemon: <strong>${(bot.pokemonCount || 0).toLocaleString()}</strong></div>
+                                    <div class="bot-detail">✅ Completed: <strong>${(bot.tradesCompleted || 0).toLocaleString()}</strong></div>
+                                    <div class="bot-detail">📊 Status: <strong>${bot.status}</strong></div>
                                 </div>
                                 ${queueHTML}
                             </div>
@@ -698,8 +928,8 @@
                 console.error('Error details:', error.message);
                 document.getElementById('games-container').innerHTML = `
                     <div class="loading-state">
-                        <div class="loading-text" style="color: #f85149;">⚠️ Connection Error - Retrying...</div>
-                        <div style="color: #7d8590; font-size: 0.9em; margin-top: 10px;">Error: ${error.message}</div>
+                        <div class="loading-text" style="color: #ef4444;">⚠️ Connection Error - Retrying...</div>
+                        <div style="color: #a78bfa; font-size: 0.9em; margin-top: 10px;">Error: ${error.message}</div>
                     </div>
                 `;
             }

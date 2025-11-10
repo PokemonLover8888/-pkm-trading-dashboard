@@ -563,7 +563,13 @@
 
         async function refreshDashboard() {
             try {
-                const res = await fetch(DATA_URL);
+                // Add cache-busting parameter to ensure fresh data
+                const res = await fetch(DATA_URL + '?t=' + Date.now());
+
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+
                 const data = await res.json();
                 const bots = data.bots;
                 const network = data.network;
@@ -689,9 +695,11 @@
 
             } catch (error) {
                 console.error('Dashboard error:', error);
+                console.error('Error details:', error.message);
                 document.getElementById('games-container').innerHTML = `
                     <div class="loading-state">
                         <div class="loading-text" style="color: #f85149;">⚠️ Connection Error - Retrying...</div>
+                        <div style="color: #7d8590; font-size: 0.9em; margin-top: 10px;">Error: ${error.message}</div>
                     </div>
                 `;
             }

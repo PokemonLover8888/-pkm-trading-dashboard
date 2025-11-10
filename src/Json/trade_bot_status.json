@@ -1,0 +1,168 @@
+{
+  "network": {
+    "status": "Online",
+    "totalBots": 13,
+    "activeBots": 13,
+    "totalTradesQueued": 0,
+    "region": "Indianapolis, Indiana",
+    "lastUpdated": "2025-11-10T03:27:04.818Z"
+  },
+  "bots": {
+    "1435526259500257313": {
+      "name": "Trade Bot #1",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Scarlet & Violet",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 34,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1435493623042015273": {
+      "name": "Trade Bot #2",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Scarlet & Violet",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 46,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1436159235959292057": {
+      "name": "Trade Bot #3",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Scarlet & Violet",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 21,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1436738853938532395": {
+      "name": "Trade Bot #4",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Scarlet & Violet",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 15,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1434749818239979533": {
+      "name": "Trade Bot #5",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Legends Z-A",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 38,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1432217772322197574": {
+      "name": "Trade Bot #6",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Legends Z-A",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 22,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1431482666359853100": {
+      "name": "Trade Bot #7",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Legends Z-A",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 41,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1431490905508155417": {
+      "name": "Trade Bot #8",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Legends Z-A",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 32,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1402656819393859678": {
+      "name": "Trade Bot #9",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Sword & Shield",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 23,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1402657221770350624": {
+      "name": "Trade Bot #10",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Sword & Shield",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 47,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1401684257075630181": {
+      "name": "Trade Bot #11",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Brilliant Diamond & Shining Pearl",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 30,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1403939746169884685": {
+      "name": "Trade Bot #12",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Legends: Arceus",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 30,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    },
+    "1403941222212702229": {
+      "name": "Trade Bot #13",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Let's Go Pikachu & Eevee",
+      "tradesQueued": 0,
+      "tradesCompleted": 0,
+      "pokemonCount": 29,
+      "lastActive": "2025-11-10T03:27:04.818Z",
+      "uptime": 0,
+      "queue": []
+    }
+  }
+}

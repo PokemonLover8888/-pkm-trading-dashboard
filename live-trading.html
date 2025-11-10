@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Trade Network - Live Status Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #000000;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(120, 0, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+            color: #e0e0e0;
+            padding: 30px 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .main-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00f5ff, #7000ff, #ff00ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(0, 245, 255, 0.6)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 35px rgba(112, 0, 255, 0.8)); }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #00f5ff;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .network-alert {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.15), rgba(112, 0, 255, 0.15));
+            border: 2px solid #00f5ff;
+            border-radius: 15px;
+            padding: 25px 35px;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            box-shadow:
+                0 0 30px rgba(0, 245, 255, 0.3),
+                inset 0 0 20px rgba(0, 245, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-alert::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 70%
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(20, 20, 40, 0.9), rgba(10, 10, 20, 0.9));
+            border: 2px solid transparent;
+            border-radius: 18px;
+            padding: 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00f5ff, #7000ff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.8;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 15px 45px rgba(0, 245, 255, 0.4),
+                0 0 40px rgba(112, 0, 255, 0.3);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+            animation: borderRotate 2s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .stat-label {
+            font-size: 0.95em;
+            color: #00f5ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00f5ff, #ff00ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+        }
+
+        .game-section {
+            background: linear-gradient(145deg, rgba(15, 15, 30, 0.95), rgba(5, 5, 15, 0.95));
+            border: 2px solid #7000ff;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 40px rgba(112, 0, 255, 0.3),
+                inset 0 0 20px rgba(112, 0, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .game-section:hover {
+            transform: translateY(-5px);
+            border-color: #00f5ff;
+            box-shadow:
+                0 15px 50px rgba(0, 245, 255, 0.4),
+                inset 0 0 30px rgba(0, 245, 255, 0.1);
+        }
+
+        .game-header {
+            background: linear-gradient(135deg, rgba(112, 0, 255, 0.3), rgba(0, 245, 255, 0.2));
+            padding: 28px 38px;
+            border-bottom: 2px solid rgba(0, 245, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .game-title-section {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .game-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
+        }
+
+        .status-badge {
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .badge-online {
+            background: linear-gradient(135deg, #00ff88, #00ffea);
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.7);
+        }
+
+        .badge-offline {
+            background: linear-gradient(135deg, #ff0055, #ff6600);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.7);
+        }
+
+        .game-stats {
+            display: flex;
+            gap: 35px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .game-stats div {
+            color: #a0a0a0;
+        }
+
+        .game-stats strong {
+            color: #00f5ff;
+            font-size: 1.3em;
+            margin-right: 6px;
+        }
+
+        .game-body {
+            padding: 35px;
+        }
+
+        .info-section {
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            font-size: 1em;
+            color: #00f5ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 245, 255, 0.3);
+        }
+
+        .load-indicator {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .load-available {
+            background: linear-gradient(135deg, #00ff88, #00ffea);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+        }
+
+        .load-busy {
+            background: linear-gradient(135deg, #ffaa00, #ff6600);
+            color: #000;
+            box-shadow: 0 0 30px rgba(255, 170, 0, 0.6);
+        }
+
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .bot-card {
+            background: linear-gradient(145deg, rgba(25, 25, 50, 0.8), rgba(15, 15, 30, 0.8));
+            border: 2px solid rgba(0, 245, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bot-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00f5ff, #7000ff, #ff00ea, #00f5ff);
+            background-size: 200% 100%;
+            animation: gradientFlow 3s linear infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .bot-card:hover {
+            transform: translateY(-5px);
+            border-color: #00f5ff;
+            box-shadow:
+                0 10px 35px rgba(0, 245, 255, 0.4),
+                inset 0 0 20px rgba(0, 245, 255, 0.1);
+        }
+
+        .bot-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+        }
+
+        .bot-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #00f5ff;
+            text-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+        }
+
+        .bot-status-indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px currentColor;
+            animation: pulse 2s infinite;
+        }
+
+        .bot-status-online {
+            background: #00ff88;
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+        .bot-status-offline {
+            background: #ff0055;
+            box-shadow: 0 0 20px #ff0055;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .bot-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .bot-detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .detail-label {
+            font-size: 0.85em;
+            color: #7000ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #00f5ff;
+        }
+
+        .queue-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 245, 255, 0.2);
+        }
+
+        .queue-header {
+            font-size: 0.9em;
+            color: #ff00ea;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .queue-empty {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+
+        .queue-item {
+            background: rgba(0, 245, 255, 0.05);
+            border-left: 3px solid #00f5ff;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .queue-user {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .queue-pokemon {
+            color: #ff00ea;
+            font-weight: 700;
+        }
+
+        .update-timestamp {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 25px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 245, 255, 0.1);
+        }
+
+        .loading-container {
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .loading-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            color: #00f5ff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .live-indicator {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 40, 0.95));
+            border: 2px solid #00f5ff;
+            padding: 18px 28px;
+            border-radius: 50px;
+            box-shadow:
+                0 10px 40px rgba(0, 245, 255, 0.4),
+                inset 0 0 20px rgba(0, 245, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow:
+                0 0 10px #00ff88,
+                0 0 20px #00ff88,
+                0 0 30px #00ff88;
+            animation: livePulse 1.5s infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        .live-text {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f5ff;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.2em; }
+            .game-header { flex-direction: column; align-items: flex-start; }
+            .game-stats { flex-direction: column; gap: 10px; }
+            .bots-grid { grid-template-columns: 1fr; }
+            .bot-details { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1 class="main-title">Trade Network Command Center</h1>
+            <p class="subtitle">Live Pokemon Trading Status Dashboard</p>
+        </div>
+
+        <div id="content" class="loading-container">
+            <div class="loading-text">Initializing Network Systems...</div>
+        </div>
+
+        <div class="live-indicator">
+            <div class="live-dot"></div>
+            <span class="live-text">LIVE • <span id="countdown">0</span>s</span>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'src/Json/trade_bot_status.json';
+        let updateCounter = 0;
+
+        async function fetchNetworkData() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                const network = data.network;
+                const bots = data.bots;
+
+                // Group bots by game
+                const gameGroups = {};
+                Object.values(bots).forEach(bot => {
+                    if (!gameGroups[bot.game]) gameGroups[bot.game] = [];
+                    gameGroups[bot.game].push(bot);
+                });
+
+                // Calculate regions
+                const regions = new Set(Object.values(bots).map(b => b.location));
+                const totalRegions = regions.size;
+
+                // Build HTML
+                let html = `
+                    <div class="network-alert">
+                        🌐 Trading network is operating ${network.status === 'Online' ? 'NORMALLY' : 'WITH ISSUES'} • ${network.totalTradesQueued} trade${network.totalTradesQueued !== 1 ? 's' : ''} in active queue
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Active Regions</div>
+                            <div class="stat-value">${totalRegions}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Total Bots Online</div>
+                            <div class="stat-value">${network.activeBots}/${network.totalBots}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Trades Queued</div>
+                            <div class="stat-value">${network.totalTradesQueued}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Total Pokemon</div>
+                            <div class="stat-value">${Object.values(bots).reduce((sum, b) => sum + (b.pokemonCount || 0), 0)}</div>
+                        </div>
+                    </div>
+                `;
+
+                // Render each game
+                for (const [game, gameBots] of Object.entries(gameGroups).sort()) {
+                    const totalBots = gameBots.length;
+                    const onlineBots = gameBots.filter(b => b.status === 'Online').length;
+                    const totalQueued = gameBots.reduce((sum, b) => sum + (b.tradesQueued || 0), 0);
+                    const totalPokemon = gameBots.reduce((sum, b) => sum + (b.pokemonCount || 0), 0);
+                    const totalCompleted = gameBots.reduce((sum, b) => sum + (b.tradesCompleted || 0), 0);
+                    const isOnline = onlineBots > 0;
+
+                    // Calculate load
+                    const avgLoad = totalBots > 0 ? totalQueued / totalBots : 0;
+                    const loadStatus = avgLoad > 3 ? 'busy' : 'available';
+                    const loadText = avgLoad > 3 ? 'High Load' : 'Available';
+
+                    html += `
+                        <div class="game-section">
+                            <div class="game-header">
+                                <div class="game-title-section">
+                                    <div class="game-title">${game}</div>
+                                    <span class="status-badge badge-${isOnline ? 'online' : 'offline'}">
+                                        ${isOnline ? '● ONLINE' : '○ OFFLINE'}
+                                    </span>
+                                </div>
+                                <div class="game-stats">
+                                    <div><strong>${totalBots}</strong> Bots</div>
+                                    <div><strong>${totalPokemon}</strong> Pokemon</div>
+                                    <div><strong>${totalQueued}</strong> Queued</div>
+                                    <div><strong>${totalCompleted}</strong> Completed</div>
+                                </div>
+                            </div>
+                            <div class="game-body">
+                                <div class="info-section">
+                                    <div class="section-header">⚡ Network Load Status</div>
+                                    <div class="load-indicator load-${loadStatus}">${loadText}</div>
+                                </div>
+
+                                <div class="info-section">
+                                    <div class="section-header">🤖 Active Trade Bots</div>
+                                    <div class="bots-grid">
+                    `;
+
+                    // Render bot cards
+                    gameBots.forEach(bot => {
+                        const isOnline = bot.status === 'Online';
+                        html += `
+                            <div class="bot-card">
+                                <div class="bot-header-row">
+                                    <div class="bot-name">${bot.name}</div>
+                                    <div class="bot-status-indicator bot-status-${isOnline ? 'online' : 'offline'}"></div>
+                                </div>
+                                <div class="bot-details">
+                                    <div class="bot-detail-item">
+                                        <span class="detail-label">Location</span>
+                                        <span class="detail-value">📍 ${bot.location}</span>
+                                    </div>
+                                    <div class="bot-detail-item">
+                                        <span class="detail-label">Status</span>
+                                        <span class="detail-value">${bot.status}</span>
+                                    </div>
+                                    <div class="bot-detail-item">
+                                        <span class="detail-label">Pokemon</span>
+                                        <span class="detail-value">${(bot.pokemonCount || 0).toLocaleString()}</span>
+                                    </div>
+                                    <div class="bot-detail-item">
+                                        <span class="detail-label">Completed</span>
+                                        <span class="detail-value">${(bot.tradesCompleted || 0).toLocaleString()}</span>
+                                    </div>
+                                </div>
+                                <div class="queue-section">
+                                    <div class="queue-header">📋 Trade Queue (${bot.tradesQueued || 0})</div>
+                                    ${(bot.queue && bot.queue.length > 0) ?
+                                        bot.queue.map(queueItem => `
+                                            <div class="queue-item">
+                                                <span class="queue-user">${queueItem.username || 'Unknown User'}</span>
+                                                <span class="queue-pokemon">${queueItem.pokemon || 'Pokemon'}</span>
+                                            </div>
+                                        `).join('') :
+                                        '<div class="queue-empty">No pending trades</div>'
+                                    }
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    html += `
+                                    </div>
+                                </div>
+                                <div class="update-timestamp">Last updated: ${new Date().toLocaleString()}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                document.getElementById('content').innerHTML = html;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('content').innerHTML = `
+                    <div class="loading-container">
+                        <div class="loading-text">Connection Error • Retrying...</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Update counter and refresh
+        setInterval(() => {
+            updateCounter++;
+            document.getElementById('countdown').textContent = updateCounter;
+
+            if (updateCounter >= 30) {
+                updateCounter = 0;
+                fetchNetworkData();
+            }
+        }, 1000);
+
+        // Initial load
+        fetchNetworkData();
+    </script>
+</body>
+</html>

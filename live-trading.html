@@ -109,6 +109,105 @@
             align-items: center;
             gap: 25px;
             margin-bottom: 30px;
+            position: relative;
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Custom Pokeball Logo */
+        .pokeball-logo {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            animation: rotate-pokeball 10s linear infinite;
+        }
+
+        @keyframes rotate-pokeball {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pokeball-logo:hover {
+            animation-play-state: paused;
+        }
+
+        .pokeball {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            background: linear-gradient(180deg,
+                #ef4444 0%,
+                #ef4444 45%,
+                #1f2937 45%,
+                #1f2937 55%,
+                #f8fafc 55%,
+                #f8fafc 100%);
+            border: 4px solid #1f2937;
+            box-shadow:
+                0 0 30px rgba(239, 68, 68, 0.6),
+                0 0 60px rgba(168, 85, 247, 0.4),
+                inset 0 5px 15px rgba(255, 255, 255, 0.3),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .pokeball::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, #f8fafc 0%, #e5e7eb 50%, #1f2937 100%);
+            border-radius: 50%;
+            border: 4px solid #1f2937;
+            box-shadow:
+                0 0 20px rgba(168, 85, 247, 0.8),
+                inset 0 2px 5px rgba(255, 255, 255, 0.5),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .pokeball::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 1);
+            z-index: 3;
+            animation: pulse-center 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-center {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 15px rgba(168, 85, 247, 1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                box-shadow: 0 0 25px rgba(168, 85, 247, 1);
+            }
+        }
+
+        .pokeball-shine {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 50%;
+            filter: blur(3px);
         }
 
         .brand-logo {
@@ -122,11 +221,58 @@
             letter-spacing: 2px;
             text-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
             animation: glow-pulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .brand-logo::before {
+            content: '⚡';
+            position: absolute;
+            left: -45px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            animation: spark 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spark {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
         }
 
         @keyframes glow-pulse {
             0%, 100% { filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8)); }
             50% { filter: drop-shadow(0 0 25px rgba(168, 85, 247, 1)); }
+        }
+
+        /* Pokemon silhouettes decoration */
+        .pokemon-decoration {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.15;
+            animation: float-pokemon 15s ease-in-out infinite;
+        }
+
+        .pokemon-decoration:nth-child(1) {
+            top: 10px;
+            right: 100px;
+            animation-delay: 0s;
+        }
+
+        .pokemon-decoration:nth-child(2) {
+            top: 50px;
+            right: 200px;
+            animation-delay: 2s;
+        }
+
+        .pokemon-decoration:nth-child(3) {
+            bottom: 20px;
+            right: 150px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float-pokemon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .brand-subtitle {
@@ -715,8 +861,20 @@
         <div class="header-bar">
             <div class="header-content">
                 <div class="brand-section">
-                    <div class="brand-logo">⚡ PKM UNIVERSE</div>
+                    <div class="brand-logo-container">
+                        <div class="pokeball-logo">
+                            <div class="pokeball">
+                                <div class="pokeball-shine"></div>
+                            </div>
+                        </div>
+                        <div class="brand-logo">PKM UNIVERSE</div>
+                    </div>
                     <div class="brand-subtitle">🌐 Indianapolis Trading Network</div>
+
+                    <!-- Floating Pokemon decorations -->
+                    <span class="pokemon-decoration">⭐</span>
+                    <span class="pokemon-decoration">💫</span>
+                    <span class="pokemon-decoration">✨</span>
                 </div>
 
                 <div class="network-banner">

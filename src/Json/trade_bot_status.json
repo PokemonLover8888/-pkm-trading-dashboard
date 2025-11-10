@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 0,
+    "totalTradesQueued": 2,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-10T07:10:32.431Z"
+    "lastUpdated": "2025-11-10T07:20:02.021Z"
   },
   "bots": {
     "1435526259500257313": {
@@ -13,12 +13,25 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 0,
+      "tradesQueued": 2,
       "tradesCompleted": 0,
       "pokemonCount": 34,
       "lastActive": "2025-11-10T03:35:29.642Z",
       "uptime": 0,
-      "queue": []
+      "queue": [
+        {
+          "userId": "123456789",
+          "username": "TestUser1",
+          "pokemon": "Pikachu",
+          "timestamp": "2025-11-10T07:20:02.009Z"
+        },
+        {
+          "userId": "987654321",
+          "username": "TestUser2",
+          "pokemon": "Charizard",
+          "timestamp": "2025-11-10T07:20:02.021Z"
+        }
+      ]
     },
     "1435493623042015273": {
       "name": "Legends Z-A Bot 2",

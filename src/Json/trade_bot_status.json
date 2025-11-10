@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 6,
+    "totalTradesQueued": 0,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-10T14:10:26.096Z"
+    "lastUpdated": "2025-11-10T14:14:32.248Z"
   },
   "bots": {
     "1435526259500257313": {
@@ -13,31 +13,12 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 3,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 34,
       "lastActive": "2025-11-10T03:35:29.642Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "111",
-          "username": "Player1",
-          "pokemon": "Pikachu",
-          "timestamp": "2025-11-10T14:10:26.065Z"
-        },
-        {
-          "userId": "222",
-          "username": "Player2",
-          "pokemon": "Charizard",
-          "timestamp": "2025-11-10T14:10:26.077Z"
-        },
-        {
-          "userId": "333",
-          "username": "Player3",
-          "pokemon": "Blastoise",
-          "timestamp": "2025-11-10T14:10:26.081Z"
-        }
-      ]
+      "queue": []
     },
     "1435493623042015273": {
       "name": "Legends Z-A Bot 2",
@@ -80,25 +61,12 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Scarlet & Violet",
-      "tradesQueued": 2,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 38,
       "lastActive": "2025-11-10T03:35:29.643Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "444",
-          "username": "Trainer4",
-          "pokemon": "Mewtwo",
-          "timestamp": "2025-11-10T14:10:26.085Z"
-        },
-        {
-          "userId": "555",
-          "username": "Trainer5",
-          "pokemon": "Rayquaza",
-          "timestamp": "2025-11-10T14:10:26.090Z"
-        }
-      ]
+      "queue": []
     },
     "1432217772322197574": {
       "name": "Scarlet & Violet Bot 2",
@@ -141,19 +109,12 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Brilliant Diamond & Shining Pearl",
-      "tradesQueued": 1,
+      "tradesQueued": 0,
       "tradesCompleted": 0,
       "pokemonCount": 23,
       "lastActive": "2025-11-10T03:35:29.643Z",
       "uptime": 0,
-      "queue": [
-        {
-          "userId": "666",
-          "username": "Gamer6",
-          "pokemon": "Lugia",
-          "timestamp": "2025-11-10T14:10:26.096Z"
-        }
-      ]
+      "queue": []
     },
     "1402657221770350624": {
       "name": "Brilliant Diamond & Shining Pearl Bot 2",

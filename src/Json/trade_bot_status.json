@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 1,
+    "totalTradesQueued": 0,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T05:31:03.700Z"
+    "lastUpdated": "2025-11-12T05:32:32.480Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -25,12 +25,13 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 1,
-      "tradesCompleted": 327,
+      "tradesQueued": 0,
+      "tradesCompleted": 328,
       "pokemonCount": 0,
-      "lastActive": "2025-11-12T05:12:20.214Z",
+      "lastActive": "2025-11-12T05:32:32.480Z",
       "uptime": 0,
-      "queue": [
+      "queue": [],
+      "recentTrades": [
         {
           "userId": "475196461106200576",
           "username": "calcantar19",
@@ -57,10 +58,9 @@
             "ball": null,
             "tera": null
           },
-          "rawRequest": "Tyranitar (M) @ Assault Vest  \nAbility: Sand Stream  \nAlpha: Yes\nBall: Heavy Ball\nEVs: 252 HP / 252 Atk / 4 SpD  \nAdamant Nature  \n- Heavy Slam  \n- Rock Blast  \n- Earthquake  \n- Crunch"
-        }
-      ],
-      "recentTrades": [
+          "rawRequest": "Tyranitar (M) @ Assault Vest  \nAbility: Sand Stream  \nAlpha: Yes\nBall: Heavy Ball\nEVs: 252 HP / 252 Atk / 4 SpD  \nAdamant Nature  \n- Heavy Slam  \n- Rock Blast  \n- Earthquake  \n- Crunch",
+          "completedAt": "2025-11-12T05:32:32.480Z"
+        },
         {
           "userId": "1021839664287596684",
           "username": ".pokemon_lover",
@@ -276,30 +276,6 @@
           },
           "rawRequest": "Riolu (M) @ Rare Candy\nOT: Kirito\nTID: 743513\nSID: 3898\nLevel: 25\nShiny: No\nBall: Luxury Ball\nLanguage: Italian\n.Scale=255\n.CurrentFriendship=255\n.RelearnMoves=$suggestAll\n.Ribbons=$suggestAll",
           "completedAt": "2025-11-12T01:34:16.857Z"
-        },
-        {
-          "userId": "306446309655576577",
-          "username": "kiritogs",
-          "pokemon": "Abra",
-          "timestamp": "2025-11-12T01:29:07.335Z",
-          "details": {
-            "name": "Abra",
-            "displayName": "Abra (M) @ Rare Candy",
-            "nickname": null,
-            "gender": "M",
-            "isShiny": false,
-            "item": "Rare Candy",
-            "ability": null,
-            "level": 21,
-            "nature": null,
-            "moves": [],
-            "evs": null,
-            "ivs": null,
-            "ball": null,
-            "tera": null
-          },
-          "rawRequest": "Abra (M) @ Rare Candy\nOT: Kirito\nTID: 743513\nSID: 3898\nLevel: 21\nShiny: No\nBall: Luxury Ball\nLanguage: Italian\n.Scale=255\n.CurrentFriendship=255\n.RelearnMoves=$suggestAll\n.Ribbons=$suggestAll",
-          "completedAt": "2025-11-12T01:29:28.241Z"
         }
       ]
     },

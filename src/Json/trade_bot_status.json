@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 0,
+    "totalTradesQueued": 1,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T05:39:12.269Z"
+    "lastUpdated": "2025-11-12T05:41:13.647Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -25,12 +25,41 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 0,
+      "tradesQueued": 1,
       "tradesCompleted": 332,
       "pokemonCount": 0,
       "lastActive": "2025-11-12T05:39:12.269Z",
       "uptime": 0,
-      "queue": [],
+      "queue": [
+        {
+          "userId": "475196461106200576",
+          "username": "calcantar19",
+          "pokemon": "Scolipede",
+          "timestamp": "2025-11-12T05:41:13.647Z",
+          "details": {
+            "name": "Scolipede",
+            "displayName": "Scolipede (M) @ Silver Powder",
+            "nickname": null,
+            "gender": "M",
+            "isShiny": false,
+            "item": "Silver Powder",
+            "ability": "Speed Boost",
+            "level": null,
+            "nature": "Adamant",
+            "moves": [
+              "Megahorn",
+              "Poison Jab",
+              "Earthquake",
+              "Toxic Spikes"
+            ],
+            "evs": "252 Atk / 4 SpD / 252 Spe",
+            "ivs": null,
+            "ball": null,
+            "tera": null
+          },
+          "rawRequest": "Scolipede (M) @ Silver Powder  \nAbility: Speed Boost  \nAlpha: Yes\nBall: Sport Ball\nEVs: 252 Atk / 4 SpD / 252 Spe  \nAdamant Nature  \n- Megahorn  \n- Poison Jab  \n- Earthquake  \n- Toxic Spikes"
+        }
+      ],
       "recentTrades": [
         {
           "userId": "475196461106200576",

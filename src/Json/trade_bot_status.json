@@ -5,7 +5,7 @@
     "activeBots": 13,
     "totalTradesQueued": 0,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T05:32:32.480Z"
+    "lastUpdated": "2025-11-12T05:33:28.198Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -26,12 +26,41 @@
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
       "tradesQueued": 0,
-      "tradesCompleted": 328,
+      "tradesCompleted": 329,
       "pokemonCount": 0,
-      "lastActive": "2025-11-12T05:32:32.480Z",
+      "lastActive": "2025-11-12T05:33:28.198Z",
       "uptime": 0,
       "queue": [],
       "recentTrades": [
+        {
+          "userId": "475196461106200576",
+          "username": "calcantar19",
+          "pokemon": "Aggron",
+          "timestamp": "2025-11-12T05:33:25.542Z",
+          "details": {
+            "name": "Aggron",
+            "displayName": "Aggron (M) @ Metal Coat",
+            "nickname": null,
+            "gender": "M",
+            "isShiny": false,
+            "item": "Metal Coat",
+            "ability": "Heavy Metal",
+            "level": null,
+            "nature": "Adamant",
+            "moves": [
+              "Heavy Slam",
+              "Iron Tail",
+              "Rock Slide",
+              "Dragon Claw"
+            ],
+            "evs": "252 HP / 200 Atk / 56 SpD",
+            "ivs": null,
+            "ball": null,
+            "tera": null
+          },
+          "rawRequest": "Aggron (M) @ Metal Coat  \nAbility: Heavy Metal  \nAlpha: Yes\nBall: Heavy Ball\nEVs: 252 HP / 200 Atk / 56 SpD  \nAdamant Nature  \n- Heavy Slam  \n- Iron Tail  \n- Rock Slide  \n- Dragon Claw",
+          "completedAt": "2025-11-12T05:33:28.198Z"
+        },
         {
           "userId": "475196461106200576",
           "username": "calcantar19",
@@ -252,30 +281,6 @@
           },
           "rawRequest": "Kadabra (M) @ Everstone\nOT: Kirito\nTID: 743513\nSID: 3898\nLevel: 50\nShiny: No\nBall: Luxury Ball\nLanguage: Italian\n.Scale=255\n.CurrentFriendship=255\n.RelearnMoves=$suggestAll\n.Ribbons=$suggestAll\nAlpha: Yes",
           "completedAt": "2025-11-12T01:36:57.370Z"
-        },
-        {
-          "userId": "306446309655576577",
-          "username": "kiritogs",
-          "pokemon": "Riolu",
-          "timestamp": "2025-11-12T01:33:53.681Z",
-          "details": {
-            "name": "Riolu",
-            "displayName": "Riolu (M) @ Rare Candy",
-            "nickname": null,
-            "gender": "M",
-            "isShiny": false,
-            "item": "Rare Candy",
-            "ability": null,
-            "level": 25,
-            "nature": null,
-            "moves": [],
-            "evs": null,
-            "ivs": null,
-            "ball": null,
-            "tera": null
-          },
-          "rawRequest": "Riolu (M) @ Rare Candy\nOT: Kirito\nTID: 743513\nSID: 3898\nLevel: 25\nShiny: No\nBall: Luxury Ball\nLanguage: Italian\n.Scale=255\n.CurrentFriendship=255\n.RelearnMoves=$suggestAll\n.Ribbons=$suggestAll",
-          "completedAt": "2025-11-12T01:34:16.857Z"
         }
       ]
     },

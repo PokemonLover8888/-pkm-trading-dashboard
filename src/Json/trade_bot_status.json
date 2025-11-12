@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 0,
+    "totalTradesQueued": 1,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T05:36:50.382Z"
+    "lastUpdated": "2025-11-12T05:37:51.111Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -25,12 +25,41 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 0,
+      "tradesQueued": 1,
       "tradesCompleted": 330,
       "pokemonCount": 0,
       "lastActive": "2025-11-12T05:36:50.382Z",
       "uptime": 0,
-      "queue": [],
+      "queue": [
+        {
+          "userId": "475196461106200576",
+          "username": "calcantar19",
+          "pokemon": "Talonflame",
+          "timestamp": "2025-11-12T05:37:51.111Z",
+          "details": {
+            "name": "Talonflame",
+            "displayName": "Talonflame (M) @ Shell Bell",
+            "nickname": null,
+            "gender": "M",
+            "isShiny": false,
+            "item": "Shell Bell",
+            "ability": "Flame Body",
+            "level": null,
+            "nature": "Jolly",
+            "moves": [
+              "Steel Wing",
+              "Flame Wheel",
+              "Aerial Ace",
+              "Double Team"
+            ],
+            "evs": "72 HP / 180 Atk / 4 SpD / 252 Spe",
+            "ivs": null,
+            "ball": null,
+            "tera": null
+          },
+          "rawRequest": "Talonflame (M) @ Shell Bell  \nAbility: Flame Body  \nAlpha: Yes\nBall: Poke Ball\nEVs: 72 HP / 180 Atk / 4 SpD / 252 Spe  \nJolly Nature  \n- Steel Wing  \n- Flame Wheel  \n- Aerial Ace  \n- Double Team"
+        }
+      ],
       "recentTrades": [
         {
           "userId": "475196461106200576",

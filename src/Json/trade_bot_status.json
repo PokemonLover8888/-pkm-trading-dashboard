@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 0,
+    "totalTradesQueued": 1,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T02:35:32.009Z"
+    "lastUpdated": "2025-11-12T05:11:33.436Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -25,12 +25,36 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 0,
+      "tradesQueued": 1,
       "tradesCompleted": 326,
       "pokemonCount": 0,
       "lastActive": "2025-11-12T02:35:32.009Z",
       "uptime": 0,
-      "queue": [],
+      "queue": [
+        {
+          "userId": "1021839664287596684",
+          "username": ".pokemon_lover",
+          "pokemon": "tepig",
+          "timestamp": "2025-11-12T05:11:33.436Z",
+          "details": {
+            "name": "tepig",
+            "displayName": "tepig",
+            "nickname": null,
+            "gender": null,
+            "isShiny": false,
+            "item": null,
+            "ability": null,
+            "level": null,
+            "nature": null,
+            "moves": [],
+            "evs": null,
+            "ivs": null,
+            "ball": null,
+            "tera": null
+          },
+          "rawRequest": "tepig"
+        }
+      ],
       "recentTrades": [
         {
           "userId": "1021839664287596684",

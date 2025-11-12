@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 0,
+    "totalTradesQueued": 1,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T05:33:28.198Z"
+    "lastUpdated": "2025-11-12T05:35:27.316Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -25,12 +25,41 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 0,
+      "tradesQueued": 1,
       "tradesCompleted": 329,
       "pokemonCount": 0,
       "lastActive": "2025-11-12T05:33:28.198Z",
       "uptime": 0,
-      "queue": [],
+      "queue": [
+        {
+          "userId": "475196461106200576",
+          "username": "calcantar19",
+          "pokemon": "Kangaskhan",
+          "timestamp": "2025-11-12T05:35:27.316Z",
+          "details": {
+            "name": "Kangaskhan",
+            "displayName": "Kangaskhan (F) @ Silk Scarf",
+            "nickname": null,
+            "gender": "F",
+            "isShiny": false,
+            "item": "Silk Scarf",
+            "ability": "Early Bird",
+            "level": null,
+            "nature": "Jolly",
+            "moves": [
+              "Outrage",
+              "Body Slam",
+              "Giga Impact",
+              "Power-Up Punch"
+            ],
+            "evs": "252 HP / 180 Atk / 4 SpD / 72 Spe",
+            "ivs": null,
+            "ball": null,
+            "tera": null
+          },
+          "rawRequest": "Kangaskhan (F) @ Silk Scarf  \nAbility: Early Bird  \nAlpha: Yes\nBall: Love Ball\nEVs: 252 HP / 180 Atk / 4 SpD / 72 Spe  \nJolly Nature  \n- Outrage  \n- Body Slam  \n- Giga Impact  \n- Power-Up Punch"
+        }
+      ],
       "recentTrades": [
         {
           "userId": "475196461106200576",

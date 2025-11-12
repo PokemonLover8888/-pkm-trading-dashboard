@@ -3,9 +3,9 @@
     "status": "Online",
     "totalBots": 13,
     "activeBots": 13,
-    "totalTradesQueued": 0,
+    "totalTradesQueued": 1,
     "region": "Indianapolis, Indiana",
-    "lastUpdated": "2025-11-12T05:12:20.214Z"
+    "lastUpdated": "2025-11-12T05:31:03.700Z"
   },
   "bots": {
     "1435492476424032276": {
@@ -25,12 +25,41 @@
       "status": "Online",
       "location": "Indianapolis, IN",
       "game": "Legends Z-A",
-      "tradesQueued": 0,
+      "tradesQueued": 1,
       "tradesCompleted": 327,
       "pokemonCount": 0,
       "lastActive": "2025-11-12T05:12:20.214Z",
       "uptime": 0,
-      "queue": [],
+      "queue": [
+        {
+          "userId": "475196461106200576",
+          "username": "calcantar19",
+          "pokemon": "Tyranitar",
+          "timestamp": "2025-11-12T05:31:03.700Z",
+          "details": {
+            "name": "Tyranitar",
+            "displayName": "Tyranitar (M) @ Assault Vest",
+            "nickname": null,
+            "gender": "M",
+            "isShiny": false,
+            "item": "Assault Vest",
+            "ability": "Sand Stream",
+            "level": null,
+            "nature": "Adamant",
+            "moves": [
+              "Heavy Slam",
+              "Rock Blast",
+              "Earthquake",
+              "Crunch"
+            ],
+            "evs": "252 HP / 252 Atk / 4 SpD",
+            "ivs": null,
+            "ball": null,
+            "tera": null
+          },
+          "rawRequest": "Tyranitar (M) @ Assault Vest  \nAbility: Sand Stream  \nAlpha: Yes\nBall: Heavy Ball\nEVs: 252 HP / 252 Atk / 4 SpD  \nAdamant Nature  \n- Heavy Slam  \n- Rock Blast  \n- Earthquake  \n- Crunch"
+        }
+      ],
       "recentTrades": [
         {
           "userId": "1021839664287596684",

@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PKM-Universe Trading Bot</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#00d4ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PKM-Universe">
+    <meta name="description" content="The ultimate Pokemon trading platform with live bot status, team builder, and mystery boxes!">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Icons for iOS -->
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="pokeball-bg"></div>
+        <div class="floating-particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png" alt="Cyndaquil" class="logo-sprite">
+                <span class="logo-text">PKM-Universe</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pokemon-creator" class="nav-link">Creator</a>
+                <a href="#trade" class="nav-link">Trade</a>
+                <a href="#commands" class="nav-link">Commands</a>
+                <a href="#queue" class="nav-link">Queue</a>
+                <a href="#guide" class="nav-link">Guide</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://discord.gg/pkm-universe" class="btn-discord" id="loginBtn" target="_blank">
+                    <i class="fab fa-discord"></i>
+                    <span id="loginText">Join Discord</span>
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Gen 1-9 Support</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">PKM-Universe</span>
+                    <span class="title-line gradient-text">Trading Bot</span>
+                </h1>
+                <p class="hero-description">
+                    The ultimate Pokemon trading experience. Create custom Pokemon with PKHeX,
+                    trade instantly, and build your perfect team. Free, fast, and available 24/7.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTrades">-</span>
+                        <span class="stat-label">Total Trades</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="activeBots">-</span>
+                        <span class="stat-label">Active Bots</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="botStatus">-</span>
+                        <span class="stat-label">Status</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#trade" class="btn btn-primary">
+                        <i class="fas fa-exchange-alt"></i>
+                        Start Trading
+                    </a>
+                    <a href="https://discord.gg/pkm-universe" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-discord"></i>
+                        Join Discord
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="pokemon-showcase">
+                    <div class="showcase-ring"></div>
+                    <div class="showcase-ring ring-2"></div>
+                    <div class="showcase-ring ring-3"></div>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png"
+                         alt="Cyndaquil" class="showcase-pokemon" id="showcasePokemon">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Live Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge live-pulse">LIVE</span>
+                <h2 class="section-title">Bot Network Dashboard</h2>
+                <p class="section-subtitle">Real-time status of all trading bots</p>
+            </div>
+
+            <!-- Network Stats Bar -->
+            <div class="network-stats-bar">
+                <div class="network-stat">
+                    <i class="fas fa-server"></i>
+                    <span class="network-stat-value" id="networkBots">13/13</span>
+                    <span class="network-stat-label">Bots Online</span>
+                </div>
+                <div class="network-stat">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span class="network-stat-value" id="networkTrades">0</span>
+                    <span class="network-stat-label">Total Trades</span>
+                </div>
+                <div class="network-stat">
+                    <i class="fas fa-users"></i>
+                    <span class="network-stat-value" id="networkQueue">0</span>
+                    <span class="network-stat-label">In Queue</span>
+                </div>
+                <div class="network-stat">
+                    <i class="fas fa-clock"></i>
+                    <span class="network-stat-value" id="networkAvgWait">~30s</span>
+                    <span class="network-stat-label">Avg Wait</span>
+                </div>
+                <div class="network-stat">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="network-stat-value" id="networkRegion">Indianapolis, IN</span>
+                    <span class="network-stat-label">Server Location</span>
+                </div>
+            </div>
+
+            <!-- Bot Grid -->
+            <div class="bot-grid" id="botGrid">
+                <!-- Bots will be populated dynamically -->
+                <div class="bot-card loading">
+                    <div class="bot-loading-spinner"></div>
+                    <span>Loading bots...</span>
+                </div>
+            </div>
+
+            <!-- Activity Feed & Queue Panel -->
+            <div class="dashboard-panels">
+                <!-- Live Activity Feed -->
+                <div class="activity-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-stream"></i> Live Activity Feed</h3>
+                        <span class="live-indicator"><span class="pulse-dot"></span> Live</span>
+                    </div>
+                    <div class="activity-feed" id="activityFeed">
+                        <div class="activity-item placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <span>Waiting for trades...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Queue Board -->
+                <div class="queue-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-list-ol"></i> Live Queue</h3>
+                        <span class="queue-count"><span id="liveQueueCount">0</span> in queue</span>
+                    </div>
+                    <div class="live-queue-list" id="liveQueueList">
+                        <div class="queue-empty-state">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No queue - trade instantly!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trade Statistics -->
+            <div class="trade-statistics">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="tradesToday">0</span>
+                        <span class="stat-label">Trades Today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-fire"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="peakHour">--</span>
+                        <span class="stat-label">Peak Hour</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="topTrader">--</span>
+                        <span class="stat-label">Top Trader Today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="avgTradeTime">~25s</span>
+                        <span class="stat-label">Avg Trade Time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2 class="section-title">Everything You Need</h2>
+                <p class="section-subtitle">Powerful tools for the ultimate trading experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>PKHeX Integration</h3>
+                    <p>Create any legal Pokemon with full customization - EVs, IVs, moves, abilities, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Trades</h3>
+                    <p>Trade within seconds. Our bots are connected 24/7 for the fastest experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>100% Legal</h3>
+                    <p>All Pokemon are legality-checked to ensure they pass all game checks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Mystery Eggs</h3>
+                    <p>Get random shiny eggs with perfect IVs. A surprise every time!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>All Games</h3>
+                    <p>Support for Scarlet/Violet, Sword/Shield, BDSP, Legends Arceus, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Join thousands of trainers in our active Discord community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pokemon Creator Section (GenPKM-style) -->
+    <section id="pokemon-creator" class="pokemon-creator-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Advanced</span>
+                <h2 class="section-title">Pokemon Creator</h2>
+                <p class="section-subtitle">Full-featured Pokemon customization - Create any legal Pokemon</p>
+            </div>
+
+            <!-- Pokemon Creator will be injected here by pokemon-creator.js -->
+            <div id="pokemon-creator-container"></div>
+        </div>
+    </section>
+
+    <!-- Trade Section -->
+    <section id="trade" class="trade-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Trade Now</span>
+                <h2 class="section-title">Create Your Pokemon</h2>
+                <p class="section-subtitle">Build your perfect Pokemon and trade instantly</p>
+            </div>
+
+            <div class="trade-container">
+                <!-- Pokemon Preview -->
+                <div class="pokemon-preview">
+                    <div class="preview-card">
+                        <div class="preview-header">
+                            <span class="preview-badge shiny-badge" id="shinyBadge" style="display: none;">
+                                <i class="fas fa-star"></i> Shiny
+                            </span>
+                            <h3 id="previewName">Select a Pokemon</h3>
+                        </div>
+                        <div class="preview-sprite">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                                 alt="Pokemon" id="previewSprite">
+                        </div>
+                        <div class="preview-stats">
+                            <div class="stat-bar">
+                                <span class="stat-name">HP</span>
+                                <div class="stat-fill" style="--stat-value: 50%; --stat-color: #ff5555;"></div>
+                                <span class="stat-value" id="statHP">31</span>
+                            </div>
+                            <div class="stat-bar">
+                                <span class="stat-name">Atk</span>
+                                <div class="stat-fill" style="--stat-value: 50%; --stat-color: #ff8800;"></div>
+                                <span class="stat-value" id="statAtk">31</span>
+                            </div>
+                            <div class="stat-bar">
+                                <span class="stat-name">Def</span>
+                                <div class="stat-fill" style="--stat-value: 50%; --stat-color: #ffdd00;"></div>
+                                <span class="stat-value" id="statDef">31</span>
+                            </div>
+                            <div class="stat-bar">
+                                <span class="stat-name">SpA</span>
+                                <div class="stat-fill" style="--stat-value: 50%; --stat-color: #00d4ff;"></div>
+                                <span class="stat-value" id="statSpA">31</span>
+                            </div>
+                            <div class="stat-bar">
+                                <span class="stat-name">SpD</span>
+                                <div class="stat-fill" style="--stat-value: 50%; --stat-color: #00ff88;"></div>
+                                <span class="stat-value" id="statSpD">31</span>
+                            </div>
+                            <div class="stat-bar">
+                                <span class="stat-name">Spe</span>
+                                <div class="stat-fill" style="--stat-value: 50%; --stat-color: #ff66aa;"></div>
+                                <span class="stat-value" id="statSpe">31</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trade Form -->
+                <div class="trade-form">
+                    <form id="tradeForm">
+                        <!-- Game Selection -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-gamepad"></i> Game
+                            </label>
+                            <select id="gameSelect" class="form-select" required>
+                                <option value="">Select Game</option>
+                                <option value="za">Legends Z-A</option>
+                                <option value="sv">Scarlet/Violet</option>
+                                <option value="swsh">Sword/Shield</option>
+                                <option value="bdsp">Brilliant Diamond/Shining Pearl</option>
+                                <option value="pla">Legends Arceus</option>
+                                <option value="lgpe">Let's Go Pikachu/Eevee</option>
+                            </select>
+                        </div>
+
+                        <!-- Pokemon Selection -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-search"></i> Pokemon
+                            </label>
+                            <input type="text" id="pokemonSearch" class="form-input" placeholder="Search Pokemon..." autocomplete="off">
+                            <div class="pokemon-dropdown" id="pokemonDropdown"></div>
+                        </div>
+
+                        <!-- Shiny Toggle -->
+                        <div class="form-group form-row">
+                            <label class="form-label">
+                                <i class="fas fa-star"></i> Shiny
+                            </label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="shinyToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- Level -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-arrow-up"></i> Level
+                            </label>
+                            <input type="number" id="levelInput" class="form-input" value="100" min="1" max="100">
+                        </div>
+
+                        <!-- Nature -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-leaf"></i> Nature
+                            </label>
+                            <select id="natureSelect" class="form-select">
+                                <option value="Adamant">Adamant (+Atk, -SpA)</option>
+                                <option value="Jolly">Jolly (+Spe, -SpA)</option>
+                                <option value="Modest">Modest (+SpA, -Atk)</option>
+                                <option value="Timid">Timid (+Spe, -Atk)</option>
+                                <option value="Bold">Bold (+Def, -Atk)</option>
+                                <option value="Calm">Calm (+SpD, -Atk)</option>
+                                <option value="Impish">Impish (+Def, -SpA)</option>
+                                <option value="Careful">Careful (+SpD, -SpA)</option>
+                                <option value="Brave">Brave (+Atk, -Spe)</option>
+                                <option value="Quiet">Quiet (+SpA, -Spe)</option>
+                                <option value="Relaxed">Relaxed (+Def, -Spe)</option>
+                                <option value="Sassy">Sassy (+SpD, -Spe)</option>
+                            </select>
+                        </div>
+
+                        <!-- Ability -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-magic"></i> Ability
+                            </label>
+                            <select id="abilitySelect" class="form-select">
+                                <option value="">Select Pokemon First</option>
+                            </select>
+                        </div>
+
+                        <!-- Held Item -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-box"></i> Held Item
+                            </label>
+                            <input type="text" id="itemSearch" class="form-input" placeholder="Search item..." autocomplete="off">
+                            <div class="item-dropdown" id="itemDropdown"></div>
+                        </div>
+
+                        <!-- Moves -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-fist-raised"></i> Moves
+                            </label>
+                            <div class="moves-grid">
+                                <input type="text" class="form-input move-input" placeholder="Move 1" data-move="1">
+                                <input type="text" class="form-input move-input" placeholder="Move 2" data-move="2">
+                                <input type="text" class="form-input move-input" placeholder="Move 3" data-move="3">
+                                <input type="text" class="form-input move-input" placeholder="Move 4" data-move="4">
+                            </div>
+                        </div>
+
+                        <!-- IVs -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-dna"></i> IVs (0-31)
+                            </label>
+                            <div class="ivs-grid">
+                                <div class="iv-input">
+                                    <label>HP</label>
+                                    <input type="number" id="ivHP" value="31" min="0" max="31">
+                                </div>
+                                <div class="iv-input">
+                                    <label>Atk</label>
+                                    <input type="number" id="ivAtk" value="31" min="0" max="31">
+                                </div>
+                                <div class="iv-input">
+                                    <label>Def</label>
+                                    <input type="number" id="ivDef" value="31" min="0" max="31">
+                                </div>
+                                <div class="iv-input">
+                                    <label>SpA</label>
+                                    <input type="number" id="ivSpA" value="31" min="0" max="31">
+                                </div>
+                                <div class="iv-input">
+                                    <label>SpD</label>
+                                    <input type="number" id="ivSpD" value="31" min="0" max="31">
+                                </div>
+                                <div class="iv-input">
+                                    <label>Spe</label>
+                                    <input type="number" id="ivSpe" value="31" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EVs -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-chart-bar"></i> EVs (Total: <span id="evTotal">0</span>/510)
+                            </label>
+                            <div class="evs-grid">
+                                <div class="ev-input">
+                                    <label>HP</label>
+                                    <input type="number" class="ev-field" id="evHP" value="0" min="0" max="252">
+                                </div>
+                                <div class="ev-input">
+                                    <label>Atk</label>
+                                    <input type="number" class="ev-field" id="evAtk" value="0" min="0" max="252">
+                                </div>
+                                <div class="ev-input">
+                                    <label>Def</label>
+                                    <input type="number" class="ev-field" id="evDef" value="0" min="0" max="252">
+                                </div>
+                                <div class="ev-input">
+                                    <label>SpA</label>
+                                    <input type="number" class="ev-field" id="evSpA" value="0" min="0" max="252">
+                                </div>
+                                <div class="ev-input">
+                                    <label>SpD</label>
+                                    <input type="number" class="ev-field" id="evSpD" value="0" min="0" max="252">
+                                </div>
+                                <div class="ev-input">
+                                    <label>Spe</label>
+                                    <input type="number" class="ev-field" id="evSpe" value="0" min="0" max="252">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Generate Trade Code
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Showdown Import -->
+            <div class="showdown-import">
+                <h3><i class="fas fa-file-import"></i> Quick Import</h3>
+                <p>Paste a Pokemon Showdown set to auto-fill the form</p>
+                <textarea id="showdownInput" placeholder="Pikachu @ Light Ball
+Ability: Static
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Thunderbolt
+- Surf
+- Grass Knot
+- Volt Switch"></textarea>
+                <button class="btn btn-secondary" id="importShowdown">
+                    <i class="fas fa-upload"></i> Import Set
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="commands-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Commands</span>
+                <h2 class="section-title">Bot Commands</h2>
+                <p class="section-subtitle">Everything you can do with PKM-Universe</p>
+            </div>
+
+            <div class="commands-tabs">
+                <button class="tab-btn active" data-tab="trading">Trading</button>
+                <button class="tab-btn" data-tab="info">Info</button>
+                <button class="tab-btn" data-tab="calculators">Calculators</button>
+                <button class="tab-btn" data-tab="fun">Fun</button>
+                <button class="tab-btn" data-tab="tracking">Tracking</button>
+            </div>
+
+            <div class="commands-content">
+                <!-- Trading Commands -->
+                <div class="commands-tab active" id="tab-trading">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/pkhex create</span>
+                            <span class="command-badge">Core</span>
+                        </div>
+                        <p class="command-desc">Create a fully customized Pokemon with all options - IVs, EVs, nature, ability, moves, and more.</p>
+                        <div class="command-example">
+                            <code>/pkhex create pokemon:Charizard shiny:True nature:Timid</code>
+                        </div>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/pkhex quick</span>
+                            <span class="command-badge">Core</span>
+                        </div>
+                        <p class="command-desc">Quick trade with competitive defaults. Just pick a Pokemon and get perfect IVs automatically.</p>
+                        <div class="command-example">
+                            <code>/pkhex quick pokemon:Garchomp</code>
+                        </div>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/mysteryegg</span>
+                            <span class="command-badge">Fun</span>
+                        </div>
+                        <p class="command-desc">Receive a random shiny egg! Perfect IVs and a surprise every time.</p>
+                        <div class="command-example">
+                            <code>/mysteryegg</code>
+                        </div>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/clone</span>
+                            <span class="command-badge">Utility</span>
+                        </div>
+                        <p class="command-desc">Clone a Pokemon from a .pk file attachment. Upload your file and get a copy!</p>
+                        <div class="command-example">
+                            <code>/clone [attach .pk9 file]</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Commands -->
+                <div class="commands-tab" id="tab-info">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/pokedex</span>
+                        </div>
+                        <p class="command-desc">Look up any Pokemon's stats, types, abilities, and more.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/weakness</span>
+                        </div>
+                        <p class="command-desc">Check type matchups and weaknesses for any Pokemon or type combo.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/nature</span>
+                        </div>
+                        <p class="command-desc">View nature effects and find the best nature for your build.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/smogon</span>
+                        </div>
+                        <p class="command-desc">Get competitive sets and strategies from Smogon.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/abilitydex</span>
+                        </div>
+                        <p class="command-desc">Learn about any ability - what it does and which Pokemon have it.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/itemdex</span>
+                        </div>
+                        <p class="command-desc">Look up items, their effects, and where to find them.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/evolutionchain</span>
+                        </div>
+                        <p class="command-desc">View complete evolution chains with methods and requirements.</p>
+                    </div>
+                </div>
+
+                <!-- Calculator Commands -->
+                <div class="commands-tab" id="tab-calculators">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/damagecalc</span>
+                        </div>
+                        <p class="command-desc">Calculate damage ranges for any move against any target.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/shinycalc</span>
+                        </div>
+                        <p class="command-desc">Calculate shiny odds based on your hunting method.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/breedingcalc</span>
+                        </div>
+                        <p class="command-desc">Calculate breeding outcomes, IV inheritance, and egg moves.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/evspread</span>
+                        </div>
+                        <p class="command-desc">Visualize EV spreads and get optimization suggestions.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/coverage</span>
+                        </div>
+                        <p class="command-desc">Analyze type coverage for your team's moveset.</p>
+                    </div>
+                </div>
+
+                <!-- Fun Commands -->
+                <div class="commands-tab" id="tab-fun">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/fusion</span>
+                        </div>
+                        <p class="command-desc">Fuse two Pokemon together and see the result!</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/guesspokemon</span>
+                        </div>
+                        <p class="command-desc">Who's That Pokemon? Test your knowledge with silhouettes.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/quiz</span>
+                        </div>
+                        <p class="command-desc">Pokemon trivia quiz with leaderboards.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/wondertrade</span>
+                        </div>
+                        <p class="command-desc">Simulate a Wonder Trade experience!</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/randompokemon</span>
+                        </div>
+                        <p class="command-desc">Generate a random Pokemon for challenge runs.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/potd</span>
+                        </div>
+                        <p class="command-desc">See the Pokemon of the Day with special spotlight.</p>
+                    </div>
+                </div>
+
+                <!-- Tracking Commands -->
+                <div class="commands-tab" id="tab-tracking">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/livingdex</span>
+                        </div>
+                        <p class="command-desc">Track your Living Dex progress across all generations.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/shinyhunt</span>
+                        </div>
+                        <p class="command-desc">Log and track your shiny hunting progress.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/trainercard</span>
+                        </div>
+                        <p class="command-desc">Create and customize your trainer card.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/teambuilder</span>
+                        </div>
+                        <p class="command-desc">Build and save competitive teams.</p>
+                    </div>
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/compare</span>
+                        </div>
+                        <p class="command-desc">Compare two Pokemon side-by-side.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Queue Section -->
+    <section id="queue" class="queue-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Live</span>
+                <h2 class="section-title">Trade Queue</h2>
+                <p class="section-subtitle">Real-time queue status</p>
+            </div>
+
+            <div class="queue-status">
+                <div class="queue-card">
+                    <div class="queue-header">
+                        <span class="queue-game">Legends Z-A</span>
+                        <span class="queue-status-badge online">Online</span>
+                    </div>
+                    <div class="queue-info">
+                        <div class="queue-stat">
+                            <span class="stat-label">In Queue</span>
+                            <span class="stat-value" id="zaQueue">0</span>
+                        </div>
+                        <div class="queue-stat">
+                            <span class="stat-label">Avg Wait</span>
+                            <span class="stat-value">~30s</span>
+                        </div>
+                    </div>
+                    <div class="queue-list" id="zaQueueList">
+                        <div class="queue-empty">Queue is empty - trade now!</div>
+                    </div>
+                </div>
+
+                <div class="queue-card">
+                    <div class="queue-header">
+                        <span class="queue-game">Scarlet/Violet</span>
+                        <span class="queue-status-badge online">Online</span>
+                    </div>
+                    <div class="queue-info">
+                        <div class="queue-stat">
+                            <span class="stat-label">In Queue</span>
+                            <span class="stat-value" id="svQueue">0</span>
+                        </div>
+                        <div class="queue-stat">
+                            <span class="stat-label">Avg Wait</span>
+                            <span class="stat-value">~30s</span>
+                        </div>
+                    </div>
+                    <div class="queue-list" id="svQueueList">
+                        <div class="queue-empty">Queue is empty - trade now!</div>
+                    </div>
+                </div>
+
+                <div class="queue-card">
+                    <div class="queue-header">
+                        <span class="queue-game">Sword/Shield</span>
+                        <span class="queue-status-badge online">Online</span>
+                    </div>
+                    <div class="queue-info">
+                        <div class="queue-stat">
+                            <span class="stat-label">In Queue</span>
+                            <span class="stat-value" id="swshQueue">0</span>
+                        </div>
+                        <div class="queue-stat">
+                            <span class="stat-label">Avg Wait</span>
+                            <span class="stat-value">~30s</span>
+                        </div>
+                    </div>
+                    <div class="queue-list" id="swshQueueList">
+                        <div class="queue-empty">Queue is empty - trade now!</div>
+                    </div>
+                </div>
+
+                <div class="queue-card">
+                    <div class="queue-header">
+                        <span class="queue-game">BDSP</span>
+                        <span class="queue-status-badge online">Online</span>
+                    </div>
+                    <div class="queue-info">
+                        <div class="queue-stat">
+                            <span class="stat-label">In Queue</span>
+                            <span class="stat-value" id="bdspQueue">0</span>
+                        </div>
+                        <div class="queue-stat">
+                            <span class="stat-label">Avg Wait</span>
+                            <span class="stat-value">~45s</span>
+                        </div>
+                    </div>
+                    <div class="queue-list" id="bdspQueueList">
+                        <div class="queue-empty">Queue is empty - trade now!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="guide-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Tutorial</span>
+                <h2 class="section-title">How to Trade</h2>
+                <p class="section-subtitle">Get started in minutes</p>
+            </div>
+
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Join Our Discord</h3>
+                        <p>Join the PKM-Universe Discord server to access all trading features.</p>
+                        <a href="https://discord.gg/pkm-universe" class="btn btn-small" target="_blank">
+                            <i class="fab fa-discord"></i> Join Server
+                        </a>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Use /pkhex Command</h3>
+                        <p>In any trade channel, use <code>/pkhex create</code> or <code>/pkhex quick</code> to create your Pokemon.</p>
+                        <div class="step-example">
+                            <code>/pkhex create pokemon:Charizard shiny:True</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Enter Link Code</h3>
+                        <p>The bot will give you a Link Trade code. Open your game and start a Link Trade with that code.</p>
+                        <div class="step-tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Make sure you're connected to the internet in-game!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Complete Trade</h3>
+                        <p>Trade any Pokemon to the bot and receive your custom Pokemon! The trade completes in seconds.</p>
+                        <div class="step-tip">
+                            <i class="fas fa-check-circle"></i>
+                            <span>That's it! Enjoy your new Pokemon!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-faq">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>Is this free?</h4>
+                        <p>Yes! PKM-Universe is completely free to use for everyone.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Are the Pokemon legal?</h4>
+                        <p>All Pokemon are legality-checked. They'll pass all in-game checks and online play.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Which games are supported?</h4>
+                        <p>Scarlet/Violet, Sword/Shield, BDSP, Legends Arceus, and Let's Go.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How long does trading take?</h4>
+                        <p>Usually under 30 seconds once you're connected!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png" alt="Cyndaquil" class="footer-logo">
+                    <span>PKM-Universe</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#commands">Commands</a>
+                    <a href="#guide">Guide</a>
+                    <a href="https://discord.gg/pkm-universe" target="_blank">Discord</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/pkm-universe" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PKM-Universe. Pokemon is a trademark of Nintendo/Creatures Inc./GAME FREAK inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Trade Code Modal -->
+    <div class="modal" id="tradeModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-exchange-alt"></i>
+                <h2>Trade Ready!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your Pokemon is ready! Use this code in Discord:</p>
+                <div class="trade-code-display">
+                    <code id="tradeCode">/pkhex create pokemon:Pikachu</code>
+                    <button class="copy-btn" id="copyCode">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <p class="modal-tip">Copy this command and paste it in any PKM-Universe trade channel!</p>
+            </div>
+            <div class="modal-actions">
+                <a href="https://discord.gg/pkm-universe" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-discord"></i> Open Discord
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="js/pokemon-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <!-- Feature Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/leaderboards.js"></script>
+    <script src="js/team-builder.js"></script>
+    <script src="js/pkhex-creator.js"></script>
+    <script src="js/trade-history.js"></script>
+    <script src="js/mystery-box.js"></script>
+    <script src="js/discord-widget.js"></script>
+    <script src="js/pokemon-creator.js"></script>
+    <script src="js/live-trading.js"></script>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="#home" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#dashboard" class="mobile-nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="#mystery-box-container" class="mobile-nav-item">
+            <i class="fas fa-gift"></i>
+            <span>Mystery</span>
+        </a>
+        <a href="#team-builder-container" class="mobile-nav-item">
+            <i class="fas fa-users"></i>
+            <span>Teams</span>
+        </a>
+        <a href="https://discord.gg/pkm-universe" class="mobile-nav-item" target="_blank">
+            <i class="fab fa-discord"></i>
+            <span>Discord</span>
+        </a>
+    </nav>
+
+    <!-- Floating Action Button -->
+    <button class="fab" id="fab-trade" onclick="document.querySelector('#trade').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-exchange-alt"></i>
+    </button>
+
+    <!-- PWA Install Banner -->
+    <div class="pwa-install-banner" id="pwa-install-banner">
+        <div class="pwa-icon">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="pwa-info">
+            <h4>Install PKM-Universe</h4>
+            <p>Add to home screen for the best experience</p>
+        </div>
+        <button class="pwa-install-btn" id="pwa-install-btn">Install</button>
+        <button class="pwa-dismiss" id="pwa-dismiss">&times;</button>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        const installBanner = document.getElementById('pwa-install-banner');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const dismissBtn = document.getElementById('pwa-dismiss');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Show install banner after a delay
+            setTimeout(() => {
+                if (!localStorage.getItem('pwa-install-dismissed')) {
+                    installBanner.classList.add('show');
+                }
+            }, 30000); // Show after 30 seconds
+        });
+
+        installBtn?.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+
+            if (outcome === 'accepted') {
+                console.log('PWA installed');
+            }
+
+            deferredPrompt = null;
+            installBanner.classList.remove('show');
+        });
+
+        dismissBtn?.addEventListener('click', () => {
+            installBanner.classList.remove('show');
+            localStorage.setItem('pwa-install-dismissed', 'true');
+        });
+
+        // Mobile navigation active state
+        document.querySelectorAll('.mobile-nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Update mobile nav on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.mobile-nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+/**
+ * PKM-Universe Mobile-First Responsive Styles
+ * Optimized for iOS and Android devices
+ */
+
+/* Base Mobile Styles */
+:root {
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+}
+
+/* Touch-friendly tap targets */
+button, .btn, a.button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Prevent text size adjustment */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Safe area padding for notched devices */
+body {
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 10px;
+    }
+}
+
+/* Mobile Header */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 1.5rem !important;
+    }
+
+    .header-subtitle {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Mobile Cards & Containers */
+@media (max-width: 768px) {
+    .dashboard-container,
+    .pkhex-creator,
+    .team-builder,
+    .leaderboards-container,
+    .trade-history-container,
+    .mystery-box-container,
+    .discord-widget {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .pkhex-main,
+    .mb-main,
+    .dw-main {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Mobile Stats Grid */
+@media (max-width: 768px) {
+    .stats-grid,
+    .dw-stats-row,
+    .living-dex-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .stat-card,
+    .dw-stat-card,
+    .ld-stat-card {
+        padding: 15px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Mobile Bot Grid */
+@media (max-width: 768px) {
+    .bot-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .bot-card {
+        padding: 15px;
+    }
+}
+
+/* Mobile Tables */
+@media (max-width: 768px) {
+    .queue-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .queue-table th,
+    .queue-table td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile Team Builder */
+@media (max-width: 768px) {
+    .tb-main {
+        grid-template-columns: 1fr !important;
+    }
+
+    .tb-team-slots {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .tb-slot {
+        height: 120px;
+    }
+
+    .tb-type-chart {
+        grid-template-columns: repeat(6, 1fr) !important;
+    }
+}
+
+/* Mobile PKHeX Creator */
+@media (max-width: 768px) {
+    .pkhex-sprite {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pkhex-stat-row {
+        margin-bottom: 20px;
+    }
+
+    .pkhex-slider-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pkhex-slider-group {
+        width: 100%;
+    }
+
+    .pkhex-moves-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pkhex-actions {
+        flex-direction: column;
+    }
+
+    .pkhex-action-btn {
+        width: 100%;
+    }
+
+    .pkhex-tera-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* Mobile Leaderboards */
+@media (max-width: 768px) {
+    .lb-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .lb-tab {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+
+    .lb-podium {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .lb-podium-item {
+        order: 0 !important;
+    }
+
+    .lb-podium-item:first-child {
+        order: -1 !important;
+    }
+}
+
+/* Mobile Trade History */
+@media (max-width: 768px) {
+    .th-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .th-tab {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+
+    .th-search-add {
+        flex-direction: column;
+    }
+
+    .th-search-input {
+        width: 100%;
+    }
+
+    .ld-gen-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .dex-pokemon-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* Mobile Mystery Box */
+@media (max-width: 768px) {
+    .mb-box-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .mb-wheel-container {
+        width: 260px;
+        height: 260px;
+    }
+
+    #mb-wheel-canvas {
+        width: 260px;
+        height: 260px;
+    }
+
+    .mb-streak-section {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mb-streak-day {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mb-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Mobile Discord Widget */
+@media (max-width: 768px) {
+    .dw-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dw-server-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .dw-server-name {
+        font-size: 1.3rem;
+    }
+
+    .dw-join-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .dw-members-preview {
+        justify-content: center;
+    }
+}
+
+/* Mobile Result Modals */
+@media (max-width: 768px) {
+    .mb-result-sprite,
+    .celebration-sprite {
+        width: 200px !important;
+        height: 200px !important;
+    }
+
+    .mb-result-name,
+    .celebration-text {
+        font-size: 1.5rem !important;
+    }
+
+    .dex-modal-content {
+        margin: 20px;
+        padding: 15px;
+    }
+}
+
+/* Touch-specific improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .bot-card:hover,
+    .stat-card:hover,
+    .lb-podium-item:hover,
+    .dex-pokemon-slot:hover {
+        transform: none;
+    }
+
+    /* Larger touch targets */
+    .pkhex-slider {
+        height: 30px;
+    }
+
+    .pkhex-slider::-webkit-slider-thumb {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Better scroll containers */
+    .th-history-list,
+    .dw-activity-feed,
+    .lb-list,
+    .mb-history-grid {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+}
+
+/* Pull-to-refresh indicator */
+.ptr-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+}
+
+.ptr-indicator.active {
+    transform: translateY(0);
+}
+
+.ptr-indicator i {
+    font-size: 1.5rem;
+    color: #00d4ff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Bottom Navigation Bar for Mobile */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    padding: 8px 0;
+    padding-bottom: calc(8px + var(--safe-area-inset-bottom));
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    body {
+        padding-bottom: calc(70px + var(--safe-area-inset-bottom));
+    }
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.7rem;
+    padding: 5px 15px;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-item i {
+    font-size: 1.3rem;
+}
+
+.mobile-nav-item.active,
+.mobile-nav-item:active {
+    color: #00d4ff;
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: #000;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .fab {
+        display: flex;
+    }
+}
+
+.fab:active {
+    transform: scale(0.95);
+}
+
+/* Install PWA Banner */
+.pwa-install-banner {
+    position: fixed;
+    bottom: 80px;
+    left: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid #00d4ff;
+    border-radius: 15px;
+    padding: 15px;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    z-index: 998;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.pwa-install-banner.show {
+    display: flex;
+}
+
+.pwa-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.pwa-info {
+    flex: 1;
+}
+
+.pwa-info h4 {
+    color: #fff;
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+}
+
+.pwa-info p {
+    color: #888;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.pwa-install-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #00d4ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pwa-dismiss {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .mobile-bottom-nav {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    .mb-result-modal .mb-result-content {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .mb-result-sprite {
+        width: 150px !important;
+        height: 150px !important;
+    }
+}
+
+/* Dark mode system preference (already dark, but ensure contrast) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .bot-card,
+    .stat-card,
+    .pkhex-creator,
+    .mystery-box-container {
+        border-width: 3px;
+    }
+
+    button, .btn {
+        border: 2px solid currentColor;
+    }
+}

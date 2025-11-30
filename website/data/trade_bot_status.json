@@ -1,0 +1,226 @@
+{
+  "network": {
+    "status": "Online",
+    "totalBots": 13,
+    "activeBots": 13,
+    "totalTradesQueued": 0,
+    "region": "Indianapolis, Indiana",
+    "lastUpdated": "2025-11-30T09:01:22.164Z"
+  },
+  "bots": {
+    "1144616808159121428": {
+      "name": "Gogeta",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Unknown",
+      "tradesQueued": 0,
+      "tradesCompleted": 42,
+      "pokemonCount": 0,
+      "lastActive": "2025-11-30T09:01:22.164Z",
+      "uptime": 0,
+      "queue": [],
+      "recentTrades": [
+        {
+          "userId": "unknown",
+          "username": "dizzylove.",
+          "pokemon": "In Progress",
+          "timestamp": "2025-11-30T09:00:27.803Z",
+          "details": {
+            "name": "In Progress",
+            "displayName": "Trade in Progress"
+          },
+          "rawRequest": "Detected from sysbot console output",
+          "completedAt": "2025-11-30T09:01:22.164Z"
+        },
+        {
+          "username": "dizzylove",
+          "timestamp": "2025-11-30T09:01:22.152Z",
+          "completedAt": "2025-11-30T09:01:22.152Z"
+        },
+        {
+          "username": "dizzylove",
+          "timestamp": "2025-11-30T09:01:22.143Z",
+          "completedAt": "2025-11-30T09:01:22.143Z"
+        },
+        {
+          "username": "mr_4207300",
+          "timestamp": "2025-11-30T08:59:05.652Z",
+          "completedAt": "2025-11-30T08:59:05.652Z"
+        },
+        {
+          "username": "mr_4207300",
+          "timestamp": "2025-11-30T08:59:05.638Z",
+          "completedAt": "2025-11-30T08:59:05.638Z"
+        },
+        {
+          "userId": "unknown",
+          "username": "mr_4207300",
+          "pokemon": "In Progress",
+          "timestamp": "2025-11-30T08:58:22.655Z",
+          "details": {
+            "name": "In Progress",
+            "displayName": "Trade in Progress"
+          },
+          "rawRequest": "Detected from sysbot console output",
+          "completedAt": "2025-11-30T08:59:05.605Z"
+        },
+        {
+          "username": "mr_4207300",
+          "timestamp": "2025-11-30T08:53:16.071Z",
+          "completedAt": "2025-11-30T08:53:16.071Z"
+        },
+        {
+          "username": "mr_4207300",
+          "timestamp": "2025-11-30T08:53:16.063Z",
+          "completedAt": "2025-11-30T08:53:16.063Z"
+        },
+        {
+          "username": "dizzylove",
+          "timestamp": "2025-11-30T08:13:54.348Z",
+          "completedAt": "2025-11-30T08:13:54.348Z"
+        },
+        {
+          "userId": "unknown",
+          "username": "dizzylove.",
+          "pokemon": "In Progress",
+          "timestamp": "2025-11-30T08:13:09.477Z",
+          "details": {
+            "name": "In Progress",
+            "displayName": "Trade in Progress"
+          },
+          "rawRequest": "Detected from sysbot console output",
+          "completedAt": "2025-11-30T08:13:54.251Z"
+        }
+      ]
+    },
+    "1275123541259583488": {
+      "name": "Mew SV Bot",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Scarlet & Violet",
+      "tradesQueued": 0,
+      "tradesCompleted": 4,
+      "pokemonCount": 0,
+      "lastActive": "2025-11-30T06:49:15.014Z",
+      "uptime": 0,
+      "queue": [],
+      "recentTrades": [
+        {
+          "username": "ogalbina",
+          "timestamp": "2025-11-30T06:49:15.014Z",
+          "completedAt": "2025-11-30T06:49:15.014Z"
+        },
+        {
+          "username": "ogalbina",
+          "timestamp": "2025-11-30T06:49:14.993Z",
+          "completedAt": "2025-11-30T06:49:14.993Z"
+        },
+        {
+          "username": "ogalbina",
+          "timestamp": "2025-11-30T06:48:13.693Z",
+          "completedAt": "2025-11-30T06:48:13.693Z"
+        },
+        {
+          "username": "ogalbina",
+          "timestamp": "2025-11-30T06:48:13.673Z",
+          "completedAt": "2025-11-30T06:48:13.673Z"
+        }
+      ]
+    },
+    "1435524562635849790": {
+      "name": "hoopa-za",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Unknown",
+      "tradesQueued": 0,
+      "tradesCompleted": 6,
+      "pokemonCount": 0,
+      "lastActive": "2025-11-30T08:17:50.809Z",
+      "uptime": 0,
+      "queue": [],
+      "recentTrades": [
+        {
+          "userId": "422092677715197955",
+          "username": "codereset",
+          "pokemon": "Drampa",
+          "timestamp": "2025-11-30T08:16:35.656Z",
+          "details": {
+            "name": "Drampa",
+            "displayName": "Drampa (PA9 file)",
+            "format": "PA9"
+          },
+          "rawRequest": "PKHeX File: 0780_-_Drampa_-_27C6C6474E48.pa9",
+          "completedAt": "2025-11-30T08:17:50.809Z"
+        },
+        {
+          "username": "codereset",
+          "timestamp": "2025-11-30T08:17:50.802Z",
+          "completedAt": "2025-11-30T08:17:50.802Z"
+        },
+        {
+          "username": "codereset",
+          "timestamp": "2025-11-30T08:17:50.788Z",
+          "completedAt": "2025-11-30T08:17:50.788Z"
+        },
+        {
+          "userId": "unknown",
+          "username": "codereset",
+          "pokemon": "In Progress",
+          "timestamp": "2025-11-30T07:11:43.660Z",
+          "details": {
+            "name": "In Progress",
+            "displayName": "Trade in Progress"
+          },
+          "rawRequest": "Detected from sysbot console output",
+          "completedAt": "2025-11-30T07:12:31.953Z"
+        },
+        {
+          "username": "codereset",
+          "timestamp": "2025-11-30T07:12:31.930Z",
+          "completedAt": "2025-11-30T07:12:31.930Z"
+        },
+        {
+          "username": "codereset",
+          "timestamp": "2025-11-30T07:12:31.919Z",
+          "completedAt": "2025-11-30T07:12:31.919Z"
+        }
+      ]
+    },
+    "1435492476424032276": {
+      "name": "Floette ZA",
+      "status": "Online",
+      "location": "Indianapolis, IN",
+      "game": "Legends Z-A",
+      "tradesQueued": 0,
+      "tradesCompleted": 3,
+      "pokemonCount": 0,
+      "lastActive": "2025-11-30T07:15:47.137Z",
+      "uptime": 0,
+      "queue": [],
+      "recentTrades": [
+        {
+          "userId": "unknown",
+          "username": "tds04",
+          "pokemon": "In Progress",
+          "timestamp": "2025-11-30T07:15:07.335Z",
+          "details": {
+            "name": "In Progress",
+            "displayName": "Trade in Progress"
+          },
+          "rawRequest": "Detected from sysbot console output",
+          "completedAt": "2025-11-30T07:15:47.137Z"
+        },
+        {
+          "username": "tds04",
+          "timestamp": "2025-11-30T07:15:46.951Z",
+          "completedAt": "2025-11-30T07:15:46.951Z"
+        },
+        {
+          "username": "tds04",
+          "timestamp": "2025-11-30T07:15:46.931Z",
+          "completedAt": "2025-11-30T07:15:46.931Z"
+        }
+      ]
+    }
+  }
+}
